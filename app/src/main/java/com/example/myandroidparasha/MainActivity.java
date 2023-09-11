@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int counter = 0;
     private TextView counterTextView;
+    private TextView counterTextView1;
     private Button incrementButton1;
     private Button incrementButton2;
     private Button incrementButton3;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         counterTextView = findViewById(R.id.textView3);
+
+        counterTextView1 = findViewById(R.id.textView);
+
         incrementButton1 = findViewById(R.id.button);
         incrementButton2 = findViewById(R.id.button2);
         incrementButton3 = findViewById(R.id.button3);
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 counter++;
+                counterTextView1.setText("Нажата кнопка 1");
                 updateCounter();
             }
         });
@@ -54,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 counter++;
+                counterTextView1.setText("Нажата кнопка 2");
                 updateCounter();
             }
         });

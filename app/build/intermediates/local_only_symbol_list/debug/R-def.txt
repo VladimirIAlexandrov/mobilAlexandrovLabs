@@ -15,6 +15,7 @@ id button2
 id button3
 id guideline5
 id guideline6
+id textView
 id textView3
 layout activity_main
 mipmap ic_launcher

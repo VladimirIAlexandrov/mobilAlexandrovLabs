@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-29:12
-INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-29:12
-INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-29:12
-INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-29:12
+ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:1-35:12
 MERGED from [com.google.android.material:material:1.8.0] C:\Users\Vladimir\.gradle\caches\transforms-3\56eb5eeb833e5a49d11812b0a8ec945c\transformed\material-1.8.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Vladimir\.gradle\caches\transforms-3\450e3e9efbbaefbad9e7b981dbd2ca51\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Vladimir\.gradle\caches\transforms-3\a113de39c744218b939c9a53ce9a385f\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -56,8 +56,8 @@ MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Vladimi
 	xmlns:android
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:1:11-69
 application
-ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:5:5-27:19
-INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:5:5-27:19
+ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:5:5-33:19
+INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:5:5-33:19
 MERGED from [com.google.android.material:material:1.8.0] C:\Users\Vladimir\.gradle\caches\transforms-3\56eb5eeb833e5a49d11812b0a8ec945c\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.8.0] C:\Users\Vladimir\.gradle\caches\transforms-3\56eb5eeb833e5a49d11812b0a8ec945c\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Vladimir\.gradle\caches\transforms-3\a113de39c744218b939c9a53ce9a385f\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -79,13 +79,13 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vl
 	android:supportsRtl
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:10:9-36
 	android:fullBackupContent
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:8:9-54
 	android:roundIcon
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:11:9-54
 	tools:targetApi
-		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:14:9-29
+		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:14:9-28
 	android:icon
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
@@ -97,7 +97,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vl
 activity#com.example.myandroidparasha.MainActivity
 ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:17:9-25:20
 	android:label
-		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:19:13-45
+		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:19:13-40
 	android:exported
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:20:13-36
 	android:name
@@ -112,6 +112,12 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
 		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:23:27-74
+activity#com.example.myandroidparasha.DynamicDataActivity
+ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:28:9-31:20
+	android:label
+		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:30:13-35
+	android:name
+		ADDED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml:29:13-48
 uses-sdk
 INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Vladimir\AndroidStudioProjects\MyAndroidParasha\app\src\main\AndroidManifest.xml

@@ -7,21 +7,27 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="AndroidLaba"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidParasha"
-        tools:targetApi="31">
+        tools:targetApi="1">
 
         <!-- Define your main activity here -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="Авторизация"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- Add your DynamicDataActivity here -->
+        <activity
+            android:name=".DynamicDataActivity"
+            android:label="Записи">
         </activity>
 
     </application>

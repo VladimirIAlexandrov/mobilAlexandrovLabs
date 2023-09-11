@@ -2714,6 +2714,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable rounded_edittext_background
+drawable rounded_edittext_backgroundlist
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -2785,6 +2787,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addButton
 id alertTitle
 id aligned
 id all
@@ -2805,9 +2808,6 @@ id beginning
 id blocking
 id bottom
 id bounce
-id button
-id button2
-id button3
 id buttonPanel
 id cancel_button
 id center
@@ -2839,11 +2839,13 @@ id cradle
 id custom
 id customPanel
 id cut
+id dataEditText
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id deltaRelative
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -2900,8 +2902,6 @@ id graph
 id graph_wrap
 id group_divider
 id groups
-id guideline5
-id guideline6
 id header_title
 id hideable
 id home
@@ -2929,7 +2929,9 @@ id line1
 id line3
 id linear
 id listMode
+id listView
 id list_item
+id loginButton
 id m3_side_sheet
 id marquee
 id masked
@@ -2989,6 +2991,8 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nameEditText
+id nameTextView
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3013,6 +3017,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passwordEditText
 id password_toggle
 id path
 id pathRelative
@@ -3124,7 +3129,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3155,6 +3159,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id usernameEditText
 id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
@@ -3273,6 +3278,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_dynamic_data
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3290,6 +3296,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_delete_item
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3354,6 +3361,7 @@ layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw logins_passwords
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

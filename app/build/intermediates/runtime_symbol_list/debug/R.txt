@@ -2713,6 +2713,8 @@ int drawable notification_template_icon_bg 0x7f0700d8
 int drawable notification_template_icon_low_bg 0x7f0700d9
 int drawable notification_tile_bg 0x7f0700da
 int drawable notify_panel_notification_icon_bg 0x7f0700db
+int drawable rounded_edittext_background 0x7f0700e0
+int drawable rounded_edittext_backgroundlist 0x7f0700e1
 int drawable test_level_drawable 0x7f0700dc
 int drawable tooltip_frame_dark 0x7f0700dd
 int drawable tooltip_frame_light 0x7f0700de
@@ -2784,6 +2786,7 @@ int id action_text 0x7f080040
 int id actions 0x7f080041
 int id activity_chooser_view_content 0x7f080042
 int id add 0x7f080043
+int id addButton 0x7f0801c6
 int id alertTitle 0x7f080044
 int id aligned 0x7f080045
 int id all 0x7f080046
@@ -2804,9 +2807,6 @@ int id beginning 0x7f080054
 int id blocking 0x7f080055
 int id bottom 0x7f080056
 int id bounce 0x7f080057
-int id button 0x7f080058
-int id button2 0x7f080059
-int id button3 0x7f08005a
 int id buttonPanel 0x7f08005b
 int id cancel_button 0x7f08005c
 int id center 0x7f08005d
@@ -2838,11 +2838,13 @@ int id cradle 0x7f080076
 int id custom 0x7f080077
 int id customPanel 0x7f080078
 int id cut 0x7f080079
+int id dataEditText 0x7f0801c7
 int id date_picker_actions 0x7f08007a
 int id decelerate 0x7f08007b
 int id decelerateAndComplete 0x7f08007c
 int id decor_content_parent 0x7f08007d
 int id default_activity_button 0x7f08007e
+int id deleteButton 0x7f0801cc
 int id deltaRelative 0x7f08007f
 int id design_bottom_sheet 0x7f080080
 int id design_menu_item_action_area 0x7f080081
@@ -2899,8 +2901,6 @@ int id graph 0x7f0800b3
 int id graph_wrap 0x7f0800b4
 int id group_divider 0x7f0800b5
 int id groups 0x7f0800b6
-int id guideline5 0x7f0800b7
-int id guideline6 0x7f0800b8
 int id header_title 0x7f0800b9
 int id hideable 0x7f0800ba
 int id home 0x7f0800bb
@@ -2928,7 +2928,9 @@ int id line1 0x7f0800d0
 int id line3 0x7f0800d1
 int id linear 0x7f0800d2
 int id listMode 0x7f0800d3
+int id listView 0x7f0801c8
 int id list_item 0x7f0800d4
+int id loginButton 0x7f0801c9
 int id m3_side_sheet 0x7f0800d5
 int id marquee 0x7f0800d6
 int id masked 0x7f0800d7
@@ -2988,6 +2990,8 @@ int id mtrl_picker_text_input_range_start 0x7f08010c
 int id mtrl_picker_title_text 0x7f08010d
 int id mtrl_view_tag_bottom_padding 0x7f08010e
 int id multiply 0x7f08010f
+int id nameEditText 0x7f0801cd
+int id nameTextView 0x7f0801ce
 int id navigation_bar_item_active_indicator_view 0x7f080110
 int id navigation_bar_item_icon_container 0x7f080111
 int id navigation_bar_item_icon_view 0x7f080112
@@ -3012,6 +3016,7 @@ int id parent 0x7f080124
 int id parentPanel 0x7f080125
 int id parentRelative 0x7f080126
 int id parent_matrix 0x7f080127
+int id passwordEditText 0x7f0801ca
 int id password_toggle 0x7f080128
 int id path 0x7f080129
 int id pathRelative 0x7f08012a
@@ -3123,7 +3128,6 @@ int id textSpacerNoButtons 0x7f080193
 int id textSpacerNoTitle 0x7f080194
 int id textStart 0x7f080195
 int id textTop 0x7f080196
-int id textView3 0x7f080197
 int id text_input_end_icon 0x7f080198
 int id text_input_error_icon 0x7f080199
 int id text_input_start_icon 0x7f08019a
@@ -3154,6 +3158,7 @@ int id uniform 0x7f0801b2
 int id unlabeled 0x7f0801b3
 int id up 0x7f0801b4
 int id useLogo 0x7f0801b5
+int id usernameEditText 0x7f0801cb
 int id view_offset_helper 0x7f0801b6
 int id view_tree_lifecycle_owner 0x7f0801b7
 int id view_tree_on_back_pressed_dispatcher_owner 0x7f0801b8
@@ -3272,6 +3277,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_dynamic_data 0x7f0b006a
 int layout activity_main 0x7f0b001c
 int layout custom_dialog 0x7f0b001d
 int layout design_bottom_navigation_item 0x7f0b001e
@@ -3289,6 +3295,7 @@ int layout design_navigation_menu 0x7f0b0029
 int layout design_navigation_menu_item 0x7f0b002a
 int layout design_text_input_end_icon 0x7f0b002b
 int layout design_text_input_start_icon 0x7f0b002c
+int layout dialog_delete_item 0x7f0b006b
 int layout m3_alert_dialog 0x7f0b002d
 int layout m3_alert_dialog_actions 0x7f0b002e
 int layout m3_alert_dialog_title 0x7f0b002f
@@ -3353,6 +3360,7 @@ int layout support_simple_spinner_dropdown_item 0x7f0b0069
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001
 int plurals mtrl_badge_content_description 0x7f0e0000
+int raw logins_passwords 0x7f130000
 int string abc_action_bar_home_description 0x7f0f0000
 int string abc_action_bar_up_description 0x7f0f0001
 int string abc_action_menu_overflow_description 0x7f0f0002

@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DynamicDataActivity extends AppCompatActivity {
 
@@ -30,10 +31,22 @@ public class DynamicDataActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
 
     private String userName;
+
+    //private String NameData;
+   // private String LoginData;
+   // private String PassData;
     @Override
     protected void onStart() {
         super.onStart();
         userName = getIntent().getStringExtra("userName");
+
+       /* NameData = getIntent().getStringExtra("NameData");
+        LoginData = getIntent().getStringExtra("LoginData");
+        PassData = getIntent().getStringExtra("PassData");*/
+
+
+
+
         userNameTextView.setText(userName);
         userNameTextView.setTextColor(Color.GRAY);
         userNameTextView.setTextScaleX(1.5F);
@@ -52,6 +65,11 @@ public class DynamicDataActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataList);
         listView.setAdapter(adapter);
 
+        dataList.add(getIntent().getStringExtra("NameData"));
+        dataList.add(getIntent().getStringExtra("LoginData"));
+        dataList.add(getIntent().getStringExtra("PassData"));
+
+        adapter.notifyDataSetChanged();
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

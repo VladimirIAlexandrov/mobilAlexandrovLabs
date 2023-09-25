@@ -17,6 +17,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText nameEditText;
     private EditText usernameEditText;
     private EditText passwordEditText;
+
+    ArrayList<String> dataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(MainActivity.this, DynamicDataActivity.class);
                     intent.putExtra("userName", enteredname);
+
+
+                    intent.putExtra("NameData", "Имя пользователя: "+enteredname);
+                    intent.putExtra("LoginData", "Логин пользователя: "+enteredUsername);
+                    intent.putExtra("PassData", "Пароль: "+enteredPassword);
+
                     startActivity(intent);
 
 

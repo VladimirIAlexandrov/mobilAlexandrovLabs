@@ -1,98 +1,94 @@
 [
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\drawable\\ic_launcher_foreground.xml"
-    },
-    {
         "merged": "com.example.myandroidparasha.app-merged_res-28:/raw_logins_passwords.txt.flat",
         "source": "com.example.myandroidparasha.app-main-30:/raw/logins_passwords.txt"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\drawable_background.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\drawable\\background.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/layout_activity_main.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\drawable_rounded_edittext_background.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\drawable\\rounded_edittext_background.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\xml\\backup_rules.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/xml_backup_rules.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\layout_dialog_delete_item.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\layout\\dialog_delete_item.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/drawable_rounded_edittext_backgroundlist.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/drawable/rounded_edittext_backgroundlist.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\layout_activity_dynamic_data.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\layout\\activity_dynamic_data.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/drawable_background.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/drawable/background.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/layout_activity_dynamic_data.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/layout/activity_dynamic_data.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\drawable_rounded_edittext_backgroundlist.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\drawable\\rounded_edittext_backgroundlist.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\raw_logins_passwords.txt.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\raw\\logins_passwords.txt"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\drawable\\ic_launcher_background.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\layout\\activity_main.xml"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/drawable_rounded_edittext_background.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/drawable/rounded_edittext_background.xml"
     },
     {
-        "merged": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-merged_res-28:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vladimir\\.gradle\\daemon\\8.0\\com.example.myandroidparasha.app-main-30:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.example.myandroidparasha.app-merged_res-28:/layout_dialog_delete_item.xml.flat",
+        "source": "com.example.myandroidparasha.app-main-30:/layout/dialog_delete_item.xml"
     }
 ]

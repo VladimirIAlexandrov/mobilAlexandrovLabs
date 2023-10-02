@@ -3,8 +3,10 @@ package com.example.myandroidparasha;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,8 +20,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DynamicDataActivity extends AppCompatActivity {
 
@@ -39,22 +44,17 @@ public class DynamicDataActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         userName = getIntent().getStringExtra("userName");
-
-       /* NameData = getIntent().getStringExtra("NameData");
-        LoginData = getIntent().getStringExtra("LoginData");
-        PassData = getIntent().getStringExtra("PassData");*/
-
-
-
-
         userNameTextView.setText(userName);
         userNameTextView.setTextColor(Color.GRAY);
         userNameTextView.setTextScaleX(1.5F);
+
     }
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_dynamic_data);
         userNameTextView = findViewById(R.id.nameTextView);
         dataEditText = findViewById(R.id.dataEditText);
@@ -103,8 +103,7 @@ public class DynamicDataActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        dataList.clear();
-        adapter.clear();
+
     }
 
     private void showDeleteDialog(final int position) {
@@ -114,10 +113,11 @@ public class DynamicDataActivity extends AppCompatActivity {
                 .setPositiveButton("Удалить", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         dataList.remove(position);
-
                         adapter.notifyDataSetChanged();
+
+
+
 
                         dialog.dismiss();
                     }
@@ -132,4 +132,56 @@ public class DynamicDataActivity extends AppCompatActivity {
         Dialog dialog = builder.create();
         dialog.show();
     }
+    // В DynamicDataActivity
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        dataList.clear();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        // Преобразование списка в строку
+        String dataListString = TextUtils.join(",", dataList);
+        editor.putString("DataList", dataListString);
+        editor.apply();
+        dataList.clear();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        String dataListString = preferences.getString("DataList", "");
+
+        if (!TextUtils.isEmpty(dataListString)) {
+            String[] dataListArray = dataListString.split(",");
+            dataList.addAll(Arrays.asList(dataListArray));
+        }
+
+        SharedPreferences preferences1 = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String entered = preferences1.getString("Login", "");
+        entered += ";"+ preferences1.getString("Password", "");
+        entered += ";"+ preferences1.getString("Name", "");
+        dataList.add(entered);
+
+        getIntent().removeExtra("NameData");
+        getIntent().removeExtra("LoginData");
+        getIntent().removeExtra("PassData");
+
+        adapter.notifyDataSetChanged();
+    }
+
+
+
 }

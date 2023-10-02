@@ -1,6 +1,7 @@
 package com.example.myandroidparasha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +25,9 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private Map<String, String> loginCredentials = new HashMap<>();
-
+    String enteredname;
+    String enteredUsername;
+    String enteredPassword;
     private EditText nameEditText;
     private EditText usernameEditText;
     private EditText passwordEditText;
@@ -43,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String enteredname = nameEditText.getText().toString();
-                String enteredUsername = usernameEditText.getText().toString();
-                String enteredPassword = passwordEditText.getText().toString();
+                 enteredname = nameEditText.getText().toString();
+                 enteredUsername = usernameEditText.getText().toString();
+                 enteredPassword = passwordEditText.getText().toString();
                 readLoginCredentials();
                 if (loginCredentials.containsKey(enteredUsername) && loginCredentials.get(enteredUsername).equals(enteredPassword) && !enteredname.isEmpty()) {
 
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         String line;
         try {
             while ((line = reader.readLine()) != null) {
-                // Парсинг строки в логин и пароль
+
                 String[] parts = line.split(",");
                 if (parts.length == 2) {
                     loginCredentials.put(parts[0], parts[1]);
@@ -102,5 +105,36 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    protected void onPause() {
+        super.onPause();
+
+
+        ////////////////////////////////////////////////////////////////
+
+        SharedPreferences preferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("Login", enteredUsername);
+        editor.putString("Password", enteredPassword);
+        editor.putString("Name", enteredname);
+
+        editor.apply();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences preferences1 = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        enteredUsername = preferences1.getString("Login", "");
+        enteredPassword = preferences1.getString("Password", "");
+        enteredname = preferences1.getString("Name", "");
+
+
+        nameEditText.setText(enteredname);
+        usernameEditText.setText(enteredUsername);
+        passwordEditText.setText(enteredPassword);
+
     }
 }

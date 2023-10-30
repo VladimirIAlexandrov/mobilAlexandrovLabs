@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -70,25 +72,44 @@ public class MainActivity extends AppCompatActivity {
                 String enteredName = nameEditText.getText().toString();
                 String enteredUsername = usernameEditText.getText().toString();
                 String enteredPassword = passwordEditText.getText().toString();
+                Handler handler = new Handler(Looper.getMainLooper());
+                System.out.println("Вход в поток\n");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dbHelper.open();
+                        if (dbHelper.getCountUser(enteredUsername, enteredPassword) >= 1) {
+                            System.out.println("Количесво пользователей с этими данными: " + dbHelper.getCountUser(enteredUsername, enteredPassword)+"\n");
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(MainActivity.this, "Пользователь уже существует", Toast.LENGTH_SHORT).show();                                }
+                                }
+                            );
 
+                            dbHelper.close();
+                        }
+                        else{
+                            long result = dbHelper.addUser(enteredName, enteredUsername, enteredPassword);
+                            System.out.println("Пользователь добавлен\n");
 
-                dbHelper.open();
-                if (dbHelper.getCountUser(enteredUsername, enteredPassword) >= 1) {
-                    Toast.makeText(MainActivity.this, "Пользователь уже существует", Toast.LENGTH_SHORT).show();
-                    dbHelper.close();
-                }
-                else{
-                    long result = dbHelper.addUser(enteredName, enteredUsername, enteredPassword);
-                    dbHelper.close();
-
-                    if (result != -1) {
-                        Log.i("msg", "Пользователь успешно добавлен");
-                        Toast.makeText(MainActivity.this, "Пользователь успешно добавлен", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Log.e("Ошибка", "Ошибка при добавлении пользователя");
-                        Toast.makeText(MainActivity.this, "Ошибка при добавлении пользователя", Toast.LENGTH_SHORT).show();
+                            dbHelper.close();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (result != -1) {
+                                        Log.i("msg", "Пользователь успешно добавлен");
+                                        Toast.makeText(MainActivity.this, "Пользователь успешно добавлен", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Log.e("Ошибка", "Ошибка при добавлении пользователя");
+                                        Toast.makeText(MainActivity.this, "Ошибка при добавлении пользователя", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
                     }
-                }
+                }).start();
+                System.out.println("Выход из потока\n");
             }
         });
 

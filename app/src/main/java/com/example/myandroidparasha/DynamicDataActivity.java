@@ -71,12 +71,20 @@ public class DynamicDataActivity extends AppCompatActivity {
         dataList.add(getIntent().getStringExtra("NameData"));
         dataList.add(getIntent().getStringExtra("LoginData"));
         dataList.add(getIntent().getStringExtra("PassData"));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Вход в поток\n");
+                dbHelper.open();
+                List<String> userDataList = dbHelper.getAllUsers();
+                System.out.println("Получены все пользователи из базы данных\n");
+                dataList.addAll(userDataList);
+                System.out.println("Пользователели добавлены в список\n");
 
-        dbHelper.open();
-        List<String> userDataList = dbHelper.getAllUsers();
-        dataList.addAll(userDataList);
-        dbHelper.close();
-
+                dbHelper.close();
+            }
+        }).start();
+        System.out.println("Выход из потока\n");
         adapter.notifyDataSetChanged();
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

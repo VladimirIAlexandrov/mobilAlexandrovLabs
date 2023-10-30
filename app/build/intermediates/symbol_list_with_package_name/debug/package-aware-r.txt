@@ -2808,6 +2808,7 @@ id beginning
 id blocking
 id bottom
 id bounce
+id button
 id buttonPanel
 id cancel_button
 id center
@@ -2836,6 +2837,7 @@ id coordinator
 id cos
 id counterclockwise
 id cradle
+id createButton
 id custom
 id customPanel
 id cut

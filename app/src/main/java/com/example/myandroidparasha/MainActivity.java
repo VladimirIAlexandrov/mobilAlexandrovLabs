@@ -12,67 +12,108 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myandroidparasha.R;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
-    private Map<String, String> loginCredentials = new HashMap<>();
-    String enteredname;
-    String enteredUsername;
-    String enteredPassword;
     private EditText nameEditText;
     private EditText usernameEditText;
     private EditText passwordEditText;
-
-    ArrayList<String> dataList;
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbHelper = new DatabaseHelper(this);
+
         nameEditText = findViewById(R.id.nameEditText);
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         Button loginButton = findViewById(R.id.loginButton);
+        Button createButton = findViewById(R.id.createButton);
+        Button deliteButton = findViewById(R.id.button);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 enteredname = nameEditText.getText().toString();
-                 enteredUsername = usernameEditText.getText().toString();
-                 enteredPassword = passwordEditText.getText().toString();
-                readLoginCredentials();
-                if (loginCredentials.containsKey(enteredUsername) && loginCredentials.get(enteredUsername).equals(enteredPassword) && !enteredname.isEmpty()) {
+                String enteredName = nameEditText.getText().toString();
+                String enteredUsername = usernameEditText.getText().toString();
+                String enteredPassword = passwordEditText.getText().toString();
+
+                dbHelper.open();
+                if (dbHelper.checkUser(enteredUsername, enteredPassword) && !enteredName.isEmpty()) {
+
 
                     Intent intent = new Intent(MainActivity.this, DynamicDataActivity.class);
-                    intent.putExtra("userName", enteredname);
 
+                    intent.putExtra("userName", enteredName);
+                    intent.putExtra("NameData", "Имя пользователя: " + enteredName);
+                    intent.putExtra("LoginData", "Логин пользователя: " + enteredUsername);
+                    intent.putExtra("PassData", "Пароль: " + enteredPassword);
 
-                    intent.putExtra("NameData", "Имя пользователя: "+enteredname);
-                    intent.putExtra("LoginData", "Логин пользователя: "+enteredUsername);
-                    intent.putExtra("PassData", "Пароль: "+enteredPassword);
-
+                    dbHelper.close();
                     startActivity(intent);
 
-
-                    Log.i("msg","Авторизация успешна");
-                    Toast mytoast = new Toast(MainActivity.this);
+                    Log.i("msg", "Авторизация успешна");
                     Toast.makeText(MainActivity.this, "Авторизация успешна", Toast.LENGTH_SHORT).show();
-
                 } else {
-                    Log.e("Ошибка","Ошибка авторизации");
+                    dbHelper.close();
 
-                    Toast mytoast = new Toast(MainActivity.this);
+                    Log.e("Ошибка", "Ошибка авторизации");
                     Toast.makeText(MainActivity.this, "Ошибка авторизации", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String enteredName = nameEditText.getText().toString();
+                String enteredUsername = usernameEditText.getText().toString();
+                String enteredPassword = passwordEditText.getText().toString();
+
+
+                dbHelper.open();
+                if (dbHelper.getCountUser(enteredUsername, enteredPassword) >= 1) {
+                    Toast.makeText(MainActivity.this, "Пользователь уже существует", Toast.LENGTH_SHORT).show();
+                    dbHelper.close();
+                }
+                else{
+                    long result = dbHelper.addUser(enteredName, enteredUsername, enteredPassword);
+                    dbHelper.close();
+
+                    if (result != -1) {
+                        Log.i("msg", "Пользователь успешно добавлен");
+                        Toast.makeText(MainActivity.this, "Пользователь успешно добавлен", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.e("Ошибка", "Ошибка при добавлении пользователя");
+                        Toast.makeText(MainActivity.this, "Ошибка при добавлении пользователя", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        deliteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String usernameToDelete = usernameEditText.getText().toString();
+
+
+                dbHelper.open();
+                User userToDelete = dbHelper.getUserByUsername(usernameToDelete);
+                dbHelper.close();
+
+                if (userToDelete != null) {
+
+                    dbHelper.open();
+                    dbHelper.deleteUser(usernameToDelete);
+                    dbHelper.close();
+
+                    nameEditText.setText("");
+                    usernameEditText.setText("");
+                    passwordEditText.setText("");
+                    Toast.makeText(MainActivity.this, "Пользователь удалён из базы данных.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Пользователь НЕ удалён из базы данных.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -81,60 +122,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-    }
-    private void readLoginCredentials() {
-        Resources resources = getResources();
-        InputStream inputStream = resources.openRawResource(R.raw.logins_passwords);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        try {
-            while ((line = reader.readLine()) != null) {
-
-                String[] parts = line.split(",");
-                if (parts.length == 2) {
-                    loginCredentials.put(parts[0], parts[1]);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    protected void onPause() {
-        super.onPause();
-
-
-        ////////////////////////////////////////////////////////////////
-
-        SharedPreferences preferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("Login", enteredUsername);
-        editor.putString("Password", enteredPassword);
-        editor.putString("Name", enteredname);
-
-        editor.apply();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        SharedPreferences preferences1 = getSharedPreferences("AppSettings", MODE_PRIVATE);
-        enteredUsername = preferences1.getString("Login", "");
-        enteredPassword = preferences1.getString("Password", "");
-        enteredname = preferences1.getString("Name", "");
-
-
-        nameEditText.setText(enteredname);
-        usernameEditText.setText(enteredUsername);
-        passwordEditText.setText(enteredPassword);
-
     }
 }

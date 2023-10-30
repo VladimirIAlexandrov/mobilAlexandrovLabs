@@ -24,6 +24,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class DynamicDataActivity extends AppCompatActivity {
@@ -34,8 +35,9 @@ public class DynamicDataActivity extends AppCompatActivity {
     private TextView userNameTextView;
     private ArrayList<String> dataList;
     private ArrayAdapter<String> adapter;
-
+    private DatabaseHelper dbHelper;
     private String userName;
+
 
     //private String NameData;
    // private String LoginData;
@@ -49,11 +51,12 @@ public class DynamicDataActivity extends AppCompatActivity {
         userNameTextView.setTextScaleX(1.5F);
 
     }
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        dbHelper = new DatabaseHelper(this);
 
         setContentView(R.layout.activity_dynamic_data);
         userNameTextView = findViewById(R.id.nameTextView);
@@ -68,6 +71,11 @@ public class DynamicDataActivity extends AppCompatActivity {
         dataList.add(getIntent().getStringExtra("NameData"));
         dataList.add(getIntent().getStringExtra("LoginData"));
         dataList.add(getIntent().getStringExtra("PassData"));
+
+        dbHelper.open();
+        List<String> userDataList = dbHelper.getAllUsers();
+        dataList.addAll(userDataList);
+        dbHelper.close();
 
         adapter.notifyDataSetChanged();
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -116,9 +124,6 @@ public class DynamicDataActivity extends AppCompatActivity {
                         dataList.remove(position);
                         adapter.notifyDataSetChanged();
 
-
-
-
                         dialog.dismiss();
                     }
                 })
@@ -132,8 +137,6 @@ public class DynamicDataActivity extends AppCompatActivity {
         Dialog dialog = builder.create();
         dialog.show();
     }
-    // В DynamicDataActivity
-
 
     @Override
     protected void onDestroy() {
@@ -142,46 +145,5 @@ public class DynamicDataActivity extends AppCompatActivity {
         dataList.clear();
         adapter.notifyDataSetChanged();
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-
-        // Преобразование списка в строку
-        String dataListString = TextUtils.join(",", dataList);
-        editor.putString("DataList", dataListString);
-        editor.apply();
-        dataList.clear();
-        adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        String dataListString = preferences.getString("DataList", "");
-
-        if (!TextUtils.isEmpty(dataListString)) {
-            String[] dataListArray = dataListString.split(",");
-            dataList.addAll(Arrays.asList(dataListArray));
-        }
-
-        SharedPreferences preferences1 = getSharedPreferences("AppSettings", MODE_PRIVATE);
-        String entered = preferences1.getString("Login", "");
-        entered += ";"+ preferences1.getString("Password", "");
-        entered += ";"+ preferences1.getString("Name", "");
-        dataList.add(entered);
-
-        getIntent().removeExtra("NameData");
-        getIntent().removeExtra("LoginData");
-        getIntent().removeExtra("PassData");
-
-        adapter.notifyDataSetChanged();
-    }
-
-
 
 }

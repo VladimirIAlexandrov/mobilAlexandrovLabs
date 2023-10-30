@@ -3,29 +3,22 @@ package com.example.myandroidparasha;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class DynamicDataActivity extends AppCompatActivity {
 
@@ -38,10 +31,6 @@ public class DynamicDataActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
     private String userName;
 
-
-    //private String NameData;
-   // private String LoginData;
-   // private String PassData;
     @Override
     protected void onStart() {
         super.onStart();
@@ -49,7 +38,6 @@ public class DynamicDataActivity extends AppCompatActivity {
         userNameTextView.setText(userName);
         userNameTextView.setTextColor(Color.GRAY);
         userNameTextView.setTextScaleX(1.5F);
-
     }
 
     @SuppressLint("MissingInflatedId")
@@ -68,38 +56,30 @@ public class DynamicDataActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataList);
         listView.setAdapter(adapter);
 
-        dataList.add(getIntent().getStringExtra("NameData"));
-        dataList.add(getIntent().getStringExtra("LoginData"));
-        dataList.add(getIntent().getStringExtra("PassData"));
+        String nameData = getIntent().getStringExtra("NameData");
+        String loginData = getIntent().getStringExtra("LoginData");
+        String passData = getIntent().getStringExtra("PassData");
 
-        dbHelper.open();
-        List<String> userDataList = dbHelper.getAllUsers();
-        dataList.addAll(userDataList);
-        dbHelper.close();
+        if (nameData != null) dataList.add(nameData);
+        if (loginData != null) dataList.add(loginData);
+        if (passData != null) dataList.add(passData);
 
-        adapter.notifyDataSetChanged();
+        loadUserData();
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String data = dataEditText.getText().toString();
-
                 if (!data.isEmpty()) {
                     dataList.add(data);
                     adapter.notifyDataSetChanged();
                     dataEditText.setText("");
-
-                    Log.i("msg","Запись успешно добавлена");
-
-                    Toast mytoast = new Toast(DynamicDataActivity.this);
                     Toast.makeText(DynamicDataActivity.this, "Запись успешно добавлена", Toast.LENGTH_SHORT).show();
-                }else {
-                    Log.e("Ошибка","данные не введены");
-                    Toast mytoast = new Toast(DynamicDataActivity.this);
+                } else {
                     Toast.makeText(DynamicDataActivity.this, "Вы не ввели текст", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -108,10 +88,26 @@ public class DynamicDataActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onStop() {
-        super.onStop();
 
+    private void loadUserData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dbHelper.open();
+                List<String> userDataList = dbHelper.getAllUsers();
+                dbHelper.close();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (userDataList != null) {
+                            dataList.addAll(userDataList);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     private void showDeleteDialog(final int position) {
@@ -123,8 +119,6 @@ public class DynamicDataActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dataList.remove(position);
                         adapter.notifyDataSetChanged();
-
-                        dialog.dismiss();
                     }
                 })
                 .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
@@ -141,9 +135,7 @@ public class DynamicDataActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         dataList.clear();
         adapter.notifyDataSetChanged();
     }
-
 }
